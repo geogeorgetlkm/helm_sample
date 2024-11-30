@@ -5,8 +5,8 @@ wp:
     env: prod
     stack: wordpress
   image:
-    repository: msalim22/wp
-    tag: v2
+    repository: worpress
+    tag: latest
     pullPolicy: Always
   replicas: 3
   configmap:
