@@ -17,3 +17,4 @@ wp:
     WORDPRESS_DB_USER: "wordpress"
   containerPorts:
       http: 80
+geo
