@@ -1,8 +1,5 @@
-  apiVersion: v1
-    name:
-  version:apiVersion: v2
+apiVersion: v2
 name: nginx-proxy
 description: A Helm chart for deploying an NGINX proxy
-type: application
 version: 0.1.0
-appVersion: "1.23.0" # Adjust based on the NGINX version you want to use
+appVersion: "1.19.10"  # NGINX version, for example

@@ -2,10 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-proxy
+  namespace: {{ .Values.nginx.namespace }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.nginx.service.type }}
   ports:
-  - port: {{ .Values.service.port }}
-    targetPort: 80
+    - port: {{ .Values.nginx.service.port }}
+      targetPort: 80
   selector:
     app: nginx-proxy

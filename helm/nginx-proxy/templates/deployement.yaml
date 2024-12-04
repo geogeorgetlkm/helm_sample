@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-proxy
+  namespace: {{ .Values.nginx.namespace }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.nginx.replicas }}
   selector:
     matchLabels:
       app: nginx-proxy
@@ -13,16 +14,14 @@ spec:
         app: nginx-proxy
     spec:
       containers:
-      - name: nginx
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: nginx-config-volume
-          mountPath: /etc/nginx/nginx.conf
-          subPath: nginx.conf
+        - name: nginx
+          image: {{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+          ports:
+            - containerPort: 80
       volumes:
-      - name: nginx-config-volume
-        configMap:
-          name: nginx-config
+        - name: nginx-config
+          configMap:
+            name: nginx-proxy-config

@@ -1,22 +1,11 @@
-replicaCount: 2
-
-image:
-  repository: nginx
-  tag: "1.23.0"
-  pullPolicy: IfNotPresent
-
-service:
-  type: ClusterIP
-  port: 80
-
-proxy:
-  upstreamUrl: "http://stage-upstream.com"
-  upstreamPort: 8081
-
-resources:
-  requests:
-    cpu: "100m"
-    memory: "128Mi"
-  limits:
-    cpu: "500m"
-    memory: "256Mi"
+nginx:
+  namespace: nginx-prod
+  upstreamUrl: "your-upstream-url"
+  upstreamPort: 8080
+  replicas: 3  # More replicas for production
+  image:
+    repository: nginx
+    tag: "1.19.10"
+  service:
+    type: LoadBalancer
+    port: 80
