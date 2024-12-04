@@ -1,7 +1,19 @@
 replicaCount: 2
+
+image:
+  repository: nginx
+  tag: "1.23.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
 proxy:
-  upstreamUrl: "http://stage-upstream.com"
-  upstreamPort: 8081
+  # Ensure the correct upstream URL and port are specified here.
+  upstreamUrl: "http://example-upstream.com"
+  upstreamPort: 8080
+
 resources:
   requests:
     cpu: "100m"

@@ -1,7 +1,18 @@
 replicaCount: 1
+
+image:
+  repository: nginx
+  tag: "1.23.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
 proxy:
-  upstreamUrl: "http://dev-upstream.com"
+  upstreamUrl: "http://dev-upstream.com"  # Retained the first upstream URL as it seems correct
   upstreamPort: 8080
+
 resources:
   requests:
     cpu: "50m"
