@@ -1,0 +1,11 @@
+replicaCount: 3
+proxy:
+  upstreamUrl: "http://prod-upstream.com"
+  upstreamPort: 8082
+resources:
+  requests:
+    cpu: "200m"
+    memory: "256Mi"
+  limits:
+    cpu: "1"
+    memory: "512Mi"
