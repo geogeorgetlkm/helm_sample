@@ -1,11 +1,11 @@
 wp:
-  name: wpapp
+  name: wp-app
   labels:
     app: wp
     env: prod
     stack: wordpress
   image:
-    repository: worpress
+    repository: wordpress
     tag: latest
     pullPolicy: Always
   replicas: 3
