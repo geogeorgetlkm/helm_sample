@@ -1,9 +1,9 @@
 db:
+  name: wp-database
   labels:
     app: db
     env: dev
     stack: wordpress
-    id : c0912526
   image:
     repository: mariadb
     tag: 10.6.4-focal
